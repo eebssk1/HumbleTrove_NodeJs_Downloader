@@ -123,7 +123,7 @@ cat1();
 
 function dtku() {
     console.log("received done..");
-    if (dtk !== 3) {dtk = dtk + 1};
+    if (dtk !== 4) {dtk = dtk + 1};
 }
 
 function dl1() {
@@ -147,4 +147,5 @@ function mfile() {
         data += strs[i].a + "|" + strs[i].b + "|" + strs[i].c + "\n";
     }
     fs.writeFile("metas.txt",data,(err)=>{console.log("finished writting meta file with error(if have)" + err)});
+    process.exit(0);
 }
