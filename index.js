@@ -146,6 +146,6 @@ function mfile() {
     for(var i = 0;i < strs.length; i++){
         data += strs[i].a + "|" + strs[i].b + "|" + strs[i].c + "\n";
     }
-    fs.writeFileSync("metas.txt",data,(err)=>{console.log("finished writting meta file with error(if have)" + err)});
+    fs.writeFileSync("metas.txt",data);
     process.exit(0);
 }
