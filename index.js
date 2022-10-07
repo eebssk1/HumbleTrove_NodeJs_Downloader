@@ -4,11 +4,11 @@ const Aria2 = require('aria2');
 const fs = require('fs');
 
 const aria2 = new Aria2({
-    host: *FILEE_THIS*,
-    port: *FILEE_THIS*,
-    secret: *FILEE_THIS*
+    host: *FILL_THIS*,
+    port: *FILL_THIS*,
+    secret: *FILL_THIS*
 });
-const api = *FILEE_THIS*;
+const api = *FILL_THIS*;
 
 function dlurl(m, f) {
     const options = {
@@ -36,7 +36,7 @@ var idx = 0;
 
 var strs = [];
 
-function cat1() {
+function enter() {
     if (idx != -1) {
         console.log("checking index " + idx);
         var rcv = "";
@@ -89,7 +89,7 @@ const eventLoopQueue = () => {
             rcv += d;
         });
         res.on('error', (e) => {
-            console.log(e + " on file" + strs[strs.length / 3 * idx - 3]);
+            console.log(e + " on file" + strs[idx].a);
             failed = 1;
         });
         res.on('end', () => {
@@ -119,8 +119,6 @@ const eventLoopQueue = () => {
 
 var dtk = 4;
 
-cat1();
-
 function dtku() {
     console.log("received done..");
     if (dtk !== 4) {dtk = dtk + 1};
@@ -149,3 +147,5 @@ function mfile() {
     fs.writeFileSync("metas.txt",data);
     process.exit(0);
 }
+
+enter();
