@@ -117,11 +117,11 @@ async function dl(callback, idx) {
     dlc.end();
 }
 
-var dtk = 8;
+var dtk = 6;
 
 function dtku() {
     console.log("received done..");
-    if (dtk !== 4) { dtk = dtk + 1 };
+    if (dtk !== 6) { dtk = dtk + 1 };
 }
 
 function dl1() {
@@ -135,17 +135,30 @@ function dl1() {
         console.log("calling aria2...");
         aria2.call("addUri", [u], { checksum: "md5=" + strs[i].c });
         aria2.call("addUri", [strs[i].d], { 'allow-overwrite': true, out: strs[i].a + '.png' });
-        dtk = dtk - 1;
+        dtk = dtk - 2;
     }
     dl(cb, 0);
 }
 
 function mfile() {
-    var data = "";
+    var data = "<!DOCTYPE html>" + '\n' + "<html>" + '\n' + "<body>" + '\n';
     for (var i = 0; i < strs.length; i++) {
-        data += strs[i].e + '\n' + strs[i].a + '\n' + strs[i].b + '\n' + strs[i].c + '\n' + '^^vv<><>baba\n';
+        data += "<div align=\"center\">" + '\n';
+        data += "<h1>" + strs[i].e + "</h1>" + '\n';
+        data += "<h3> Machine Name </h3>" + '\n';
+        data += "<p>" + strs[i].a + "</p>" + '\n';
+        data += "<h3> Res Path </h3>" + '\n';
+        data += "<p>" + strs[i].b + "</p>" + '\n';
+        data += "<h3> Md5 Sum </h3>" + '\n';
+        data += "<p>" + strs[i].c + "</p>" + '\n';
+        data += "<h5> Picture </h5>" + '\n';
+        data += "<image src=\"" + strs[i].a + '.png' + "\">" + '\n';
+        data += "<h5> Description </h5>" + '\n';
+        data += strs[i].f;
+        data += "</div>" + '\n';
     }
-    fs.writeFileSync("metas.txt", data);
+    data += "</body>" + '\n' + "</html>";
+    fs.writeFileSync("metas.html", data);
     process.exit(0);
 }
 
