@@ -143,7 +143,7 @@ function dl1() {
 function mfile() {
     var data = "";
     for (var i = 0; i < strs.length; i++) {
-        data += strs[i].e + '\n' + strs[i].a + '\n' + strs[i].b + '\n' + strs[i].c + '\n' + '^^vv<><>baba';
+        data += strs[i].e + '\n' + strs[i].a + '\n' + strs[i].b + '\n' + strs[i].c + '\n' + '^^vv<><>baba\n';
     }
     fs.writeFileSync("metas.txt", data);
     process.exit(0);
